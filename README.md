@@ -1,86 +1,63 @@
-# Talisman Connect
+Here's a simple GitHub README template for the `polkadot-connect` library:
 
-<img src="talisman.svg" alt="Talisman" width="15%" align="right" />
+```markdown
+# polkadot-connect
 
-[![website-link](https://img.shields.io/website?label=docs&style=flat-square&up_message=online&url=https%3A%2F%2Ftalismansociety.github.io%2Ftalisman-connect)](https://talismansociety.github.io/talisman-connect)
-[![discord-link](https://img.shields.io/discord/858891448271634473?logo=discord&logoColor=white&style=flat-square)](https://discord.gg/talisman)
+**polkadot-connect** is a library designed to facilitate seamless connections between your decentralized applications (DApps) and Polkadot wallets. It provides an easy-to-use interface for integrating wallet functionalities, ensuring a smooth user experience.
 
-**Connect your DApp** to Ethereum and Polkadot wallets with Talisman Connect. A minimal SDK to connect your DApp with your users' favourite EOA wallets.
+## Features
 
-<div align="center">
-<img src="preview.png" alt="Talisman Connect Preview" width="50%" />
-</div>
+- **Easy Integration**: Quickly connect your DApp to various Polkadot wallets.
+- **User-Friendly API**: Simple methods for handling wallet connections and transactions.
+- **Supports Multiple Wallets**: Compatible with popular Polkadot wallets.
 
-## How to use (for DApp developers)
+## Installation
 
-### Quickstart example
+To install `polkadot-connect`, you can use npm or yarn:
 
-1. Add the SDK to your DApp's dependencies:
+```bash
+npm install polkadot-connect
+```
 
-   ```bash
-   # Using npm
-   npm install --save @talismn/connect-wallets
-   # Using bun
-   bun add @talismn/connect-wallets
-   # Using pnpm
-   pnpm add @talismn/connect-wallets
-   # Using yarn
-   yarn add @talismn/connect-wallets
-   ```
+or
 
-1. Add the code
+```bash
+yarn add polkadot-connect
+```
 
-   ```ts
-   import { getWallets } from '@talismn/connect-wallets'
+## Usage
 
-   // get an array of wallets which are installed
-   const installedWallets = getWallets().filter((wallet) => wallet.installed)
+Here's a quick example of how to use `polkadot-connect` in your DApp:
 
-   // get talisman from the array of installed wallets
-   const talismanWallet = installedWallets.find(
-     (wallet) => wallet.extensionName === 'talisman',
-   )
+```javascript
+import { connectWallet } from 'polkadot-connect';
 
-   // enable the wallet
-   if (talismanWallet) {
-     talismanWallet.enable('myCoolDapp').then(() => {
-       talismanWallet.subscribeAccounts((accounts) => {
-         // do anything you want with the accounts provided by the wallet
-         console.log('got accounts', accounts)
-       })
-     })
-   }
-   ```
+async function init() {
+    const wallet = await connectWallet();
+    console.log('Connected to wallet:', wallet);
+}
 
-### More details
+init();
+```
 
-Talisman Connect can be used in one of three ways:
+## Documentation
 
-1. `[POPULAR]` Integrate as a standalone library within your own UI.  
-   See [@talismn/connect-wallets](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-wallets) for instructions on this option.
+For detailed documentation and examples, please refer to the [Documentation](link-to-documentation).
 
-1. Integrate using a set of themeable React components.  
-   See [@talismn/connect-components](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-components) for instructions on this option.
+## Contributing
 
-1. Integrate using our generic ready-to-use modal UI.
-   See [@talismn/connect-ui](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-ui) for instructions on this option.
+We welcome contributions! If you'd like to contribute, please fork the repository and submit a pull request. For more details, check out our [Contributing Guidelines](link-to-contributing-guidelines).
 
-## How to contribute to this repo
+## License
 
-1. Clone this repo and install its dependencies.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-   ```bash
-   git clone git@github.com:TalismanSociety/talisman-connect.git
-   cd talisman-connect
-   pnpm install
-   pnpm build
-   ```
+## Contact
 
-1. Run the devserver to preview your changes as you make them.
+For questions or support, please open an issue on GitHub or contact us at [your-email@example.com].
+```
 
-   ```bash
-   pnpm run dev
-   ```
-
-1. Make some changes, then commit and push them to a fork on GitHub.
-1. Open a pull request and our team will review your changes.
+### Customization
+- Replace `link-to-documentation` and `link-to-contributing-guidelines` with actual URLs.
+- Update the contact email as necessary.
+- Feel free to add any additional sections or features relevant to your library!
