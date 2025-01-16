@@ -1,0 +1,77 @@
+.modal-overrides {
+  --modal-background: var(--talisman-connect-modal-background, #fafafa);
+  --modal-foreground: var(--talisman-connect-modal-foreground, #222);
+  --modal-control-background: var(
+    --talisman-connect-control-background,
+    #f2f2f2
+  );
+  --modal-active-background: var(--talisman-connect-active-background, #d2d2d2);
+  --modal-border-radius: var(--talisman-connect-border-radius, 1rem);
+  --modal-gutter: var(--talisman-connect-modal-gutter, 2rem);
+  --modal-width: var(--talisman-connect-modal-min-width, 90%);
+  --modal-max-width: var(--talisman-connect-modal-max-width, 470px);
+  --modal-min-height: var(--talisman-connect-modal-min-height, auto);
+  --modal-max-height: var(--talisman-connect-modal-max-height, 80vh);
+  --modal-font-family: var(--talisman-connect-font-family, sans-serif);
+  --modal-header-font-size: var(
+    --talisman-connect-modal-header-font-size,
+    1.5rem
+  );
+
+  --modal-z-index: var(--talisman-connect-modal-z-index, 999);
+}
+
+.modal-overrides > * + * {
+  margin-top: 2rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+button.row-button,
+button.row-button-unavailable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--modal-gutter) * 0.5);
+  border-radius: calc(var(--modal-border-radius) * 0.75);
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: var(--modal-control-background);
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+button.row-button-unavailable {
+  opacity: 30%;
+}
+
+button.row-button:hover {
+  background: var(--modal-active-background);
+}
+
+a.row-button {
+  text-decoration: none;
+  color: inherit;
+}
+
+.message {
+  text-align: center;
+  opacity: 0.7;
+}
+
+.message::first-letter {
+  text-transform: capitalize;
+}
+
+.no-extension-message {
+  padding: 1rem 2rem 2rem;
+  text-align: center;
+  opacity: 0.7;
+}

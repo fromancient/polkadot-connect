@@ -1,0 +1,62 @@
+{
+  "name": "@talismn/connect-wallets",
+  "version": "1.2.8",
+  "license": "GPL-3.0",
+  "author": "TalismanSociety",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TalismanSociety/talisman-connect.git",
+    "directory": "packages/connect-wallets"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc -b && vite build",
+    "lint": "eslint ."
+  },
+  "type": "module",
+  "main": "./dist/connect-wallets.cjs",
+  "module": "./dist/connect-wallets.js",
+  "types": "./dist/connect-wallets.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/connect-wallets.js",
+      "require": "./dist/connect-wallets.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "Talisman",
+    "Connect",
+    "Integration"
+  ],
+  "peerDependencies": {
+    "@polkadot/api": ">=9.3.3",
+    "@polkadot/extension-inject": ">=0.44.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@polkadot/api": "^14.3.1",
+    "@polkadot/extension-inject": "^0.56.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.11.0",
+    "vite": "^5.4.10",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-svgr": "^4.3.0"
+  }
+}

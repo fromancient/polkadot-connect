@@ -1,0 +1,90 @@
+.modal {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0; /* inset sets all 4 values (top right bottom left) much like how we set padding, margin etc., */
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: var(--modal-z-index, 999);
+  animation: modal-enter 0.2s ease-in-out;
+}
+
+/* animation slide up for 0.2 seconds and fade in */
+@keyframes modal-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TODO: Need to observe svgs when imported and used. The default one breaks the svg sizes. */
+.modal svg {
+  width: unset;
+  height: unset;
+}
+
+.modal-content {
+  box-sizing: border-box;
+  font-family: var(--modal-font-family, inherit);
+  background: var(--modal-background);
+  color: var(--modal-foreground, #121212);
+  border-radius: var(--modal-border-radius);
+  padding: var(--modal-gutter, '32px 30px');
+  width: var(--modal-width, 90%);
+  max-width: var(--modal-max-width, 470px);
+  min-height: var(--modal-min-height, auto);
+  max-height: var(--modal-max-height, 320px);
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: max-content 1fr max-content;
+}
+
+.modal-content-body {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.modal-header {
+  display: grid;
+  grid-template-columns: 32px 1fr 32px;
+  justify-items: center;
+  align-items: center;
+  font-size: var(--modal-header-font-size, 1.5rem);
+  text-align: center;
+}
+
+.modal-header::after {
+  content: '';
+  display: block;
+  /* margin-bottom: calc(var(--modal-gutter) * 0.25); */
+  margin-bottom: var(--modal-gutter);
+}
+
+.modal-content-footer::before {
+  content: '';
+  display: block;
+  /* margin-top: calc(var(--modal-gutter) * 0.25); */
+  margin-top: var(--modal-gutter);
+}
+
+button.icon-button {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  align-self: baseline;
+  opacity: 0.5;
+}

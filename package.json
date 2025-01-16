@@ -1,0 +1,45 @@
+{
+  "name": "polkadot-connect",
+  "description": "Connect your DApp to Ethereum and Polkadot wallets with Talisman Connect.",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@9.13.0+sha512.beb9e2a803db336c10c9af682b58ad7181ca0fbd0d4119f2b33d5f2582e96d6c0d93c85b23869295b765170fbdaa92890c0da6ada457415039769edf3c959efe",
+  "scripts": {
+    "prepare": "husky",
+    "prepublishOnly": "pnpm build",
+    "build": "pnpm run --recursive --stream build",
+    "dev": "pnpm run --recursive --stream --parallel dev",
+    "lint": "pnpm run --recursive --stream lint",
+    "format": "prettier --write \"**/*.{ts,tsx,css,md}\""
+  },
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3"
+  },
+  "prettier": {
+    "plugins": [
+      "@ianvs/prettier-plugin-sort-imports"
+    ],
+    "importOrder": [
+      "<TYPES>^(node:)",
+      "<BUILT_IN_MODULES>",
+      "",
+      "<TYPES>",
+      "<THIRD_PARTY_MODULES>",
+      "",
+      "<TYPES>^[.]",
+      "^[.]"
+    ],
+    "importOrderTypeScriptVersion": "4.8.2",
+    "semi": false,
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "*.{ts,tsx,css,md}": "prettier --write"
+  }
+}
