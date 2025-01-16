@@ -1,5 +1,3 @@
-Here's a simple GitHub README template for the `polkadot-connect` library:
-
 ```markdown
 # polkadot-connect
 
