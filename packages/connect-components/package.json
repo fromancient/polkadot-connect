@@ -1,11 +1,11 @@
 {
-  "name": "@talismn/connect-components",
+  "name": "@polkadot/connect-components",
   "version": "1.1.9",
   "license": "GPL-3.0",
   "author": "TalismanSociety",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TalismanSociety/talisman-connect.git",
+    "url": "https://github.com/fromancient/polkadot-connect.git",
     "directory": "packages/connect-components"
   },
   "publishConfig": {

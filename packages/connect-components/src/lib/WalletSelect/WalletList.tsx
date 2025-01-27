@@ -1,4 +1,4 @@
-import { Wallet } from '@talismn/connect-wallets'
+import { Wallet } from '@polkadot/connect-wallets'
 
 import ChevronRightIcon from '../../assets/icons/chevron-right.svg?react'
 import Download from '../../assets/icons/download.svg?react'

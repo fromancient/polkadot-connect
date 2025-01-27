@@ -1,4 +1,4 @@
-import { Wallet } from '@talismn/connect-wallets'
+import { Wallet } from '@polkadot/connect-wallets'
 
 export function saveAndDispatchWalletSelect(wallet: Wallet) {
   localStorage.setItem(

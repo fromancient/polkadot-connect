@@ -2,7 +2,7 @@ import {
   NotInstalledError,
   Wallet,
   WalletAccount,
-} from '@talismn/connect-wallets'
+} from '@polkadot/connect-wallets'
 import {
   cloneElement,
   ReactElement,

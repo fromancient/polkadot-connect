@@ -1,10 +1,10 @@
-import { Modal } from '@talismn/connect-ui'
+import { Modal } from '@polkadot/connect-ui'
 import {
   getWallets,
   TalismanWallet,
   Wallet,
   WalletAccount,
-} from '@talismn/connect-wallets'
+} from '@polkadot/connect-wallets'
 import {
   cloneElement,
   ReactElement,

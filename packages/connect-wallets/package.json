@@ -1,11 +1,11 @@
 {
-  "name": "@talismn/connect-wallets",
+  "name": "@polkadot/connect-wallets",
   "version": "1.2.8",
   "license": "GPL-3.0",
-  "author": "TalismanSociety",
+  "author": "Fromancient",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TalismanSociety/talisman-connect.git",
+    "url": "https://github.com/fromancient/polkadot-connect.git",
     "directory": "packages/connect-wallets"
   },
   "publishConfig": {

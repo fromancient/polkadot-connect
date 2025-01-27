@@ -1,4 +1,4 @@
-import { isWalletInstalled } from '@talismn/connect-wallets'
+import { isWalletInstalled } from '@polkadot/connect-wallets'
 
 export function removeIfUninstalled() {
   // Check saved `@talisman-connect/selected-wallet-name`

@@ -1,11 +1,11 @@
 {
-  "name": "@talismn/connect-ui",
+  "name": "@polkadot/connect-ui",
   "version": "1.1.4",
   "license": "GPL-3.0",
-  "author": "TalismanSociety",
+  "author": "Fromancient",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TalismanSociety/talisman-connect.git",
+    "url": "https://github.com/fromancient/polkadot-connect.git",
     "directory": "packages/connect-ui"
   },
   "publishConfig": {

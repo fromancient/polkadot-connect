@@ -1,4 +1,4 @@
-# @talismn/connect-wallets
+# @polkadot/connect-wallets
 
 This package provides the building blocks for wallet connection UIs.
 
@@ -10,19 +10,19 @@ This is not a problem when it was just Polkadot.js extension. But now with Talis
 
 Furthermore, most use cases, one wallet is selected (and enabled) at one time.
 
-`@talismn/connect-wallets` aims to solve this issue.
+`@polkadot/connect-wallets` aims to solve this issue.
 
 ## Setup:
 
 ```bash
 # Using npm
-npm install --save @talismn/connect-wallets
+npm install --save @polkadot/connect-wallets
 # Using bun
-bun add @talismn/connect-wallets
+bun add @polkadot/connect-wallets
 # Using pnpm
-pnpm add @talismn/connect-wallets
+pnpm add @polkadot/connect-wallets
 # Using yarn
-yarn add @talismn/connect-wallets
+yarn add @polkadot/connect-wallets
 ```
 
 ## Quick Start:
@@ -30,7 +30,7 @@ yarn add @talismn/connect-wallets
 ### Wallet Selector UI
 
 ```tsx
-import { getWallets } from '@talismn/connect-wallets';
+import { getWallets } from '@polkadot/connect-wallets';
 
 const DAPP_NAME = /* Get Dapp name */
 

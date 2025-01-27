@@ -1,21 +1,21 @@
-# @talismn/connect-components
+# @polkadot/connect-components
 
 The Wallet Connection UI is core to all Dapps in existence.
 
 Every Dapp developer will have to implement logic and edge cases of connecting to different wallets which may take days to implement.
 
-The `WalletSelect` component in `@talismn/connect-components` will be a massive time saver for Dapp developers without an existing wallet selection ui.
+The `WalletSelect` component in `@polkadot/connect-components` will be a massive time saver for Dapp developers without an existing wallet selection ui.
 
-If you have an existing modal, the `WalletSelectButton` in `@talismn/connect-components` may be better suited to your needs.
+If you have an existing modal, the `WalletSelectButton` in `@polkadot/connect-components` may be better suited to your needs.
 
-If you require a bespoke ui modal, you can use the `@talismn/connect-wallets` to build out your own modal.
+If you require a bespoke ui modal, you can use the `@polkadot/connect-wallets` to build out your own modal.
 
 More components will be developed along the way.
 
 ## Setup:
 
 ```
-pnpm add @talismn/connect-components @talismn/connect-wallets @talismn/connect-ui
+pnpm add @polkadot/connect-components @polkadot/connect-wallets @polkadot/connect-ui
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ If you have calls to `web3FromAddress`, do note that `web3FromSource` will suffi
 This component is the wallet selection modal.
 
 ```tsx
-import { WalletSelect } from '@talismn/connect-components';
+import { WalletSelect } from '@polkadot/connect-components';
 
 return <WalletSelect
   // [Required] The dapp name
@@ -98,7 +98,7 @@ This function is a drop-in replacement for the `@polkadot/extension-dapp` versio
 This uses the localStorage value for `@talisman-connect/selected-wallet-name` which is updated by `WalletSelect` or `WalletSelectButton` and retrieves the extension object.
 
 ```tsx
-import { web3FromSource } from '@talismn/connect-components'
+import { web3FromSource } from '@polkadot/connect-components'
 
 // This is the object that cointains the `signer` amongs all others.
 const injector = web3FromSource()
@@ -109,8 +109,8 @@ const injector = web3FromSource()
 This component is the actual wallet selector. You can use this is if you have an existing modal. However, we do recommend using `WalletSelect` in general.
 
 ```tsx
-import { WalletSelectButton } from '@talismn/connect-components'
-import { TalismanWallet } from '@talismn/connect-wallets'
+import { WalletSelectButton } from '@polkadot/connect-components'
+import { TalismanWallet } from '@polkadot/connect-wallets'
 
 const talismanWallet = new TalismanWallet()
 
@@ -214,12 +214,12 @@ then `WalletSelect` will inherit the correct styles.
 
 ## Adding new wallets into the `WalletSelect` Modal
 
-Refer to [`@talismn/connect-wallets`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-wallets) for more details.
+Refer to [`@polkadot/connect-wallets`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-wallets) for more details.
 
 ## Dependencies:
 
-- [`@talismn/connect-wallets`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-wallets)
-- [`@talismn/connect-ui`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-ui)
+- [`@polkadot/connect-wallets`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-wallets)
+- [`@polkadot/connect-ui`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-ui)
 
 ## Troubleshooting
 

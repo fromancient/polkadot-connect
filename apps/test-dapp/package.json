@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@talismn/connect-components": "*",
-    "@talismn/connect-ui": "*",
-    "@talismn/connect-wallets": "*",
+    "@polkadot/connect-components": "*",
+    "@polkadot/connect-ui": "*",
+    "@polkadot/connect-wallets": "*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
