@@ -2,7 +2,6 @@
   "name": "polkadot-connect",
   "description": "Connect your DApp to Ethereum and Polkadot wallets with Polkadot Connect.",
   "version": "0.1.0",
-  "private": true,
   "engines": {
     "node": ">=18.0.0"
   },
