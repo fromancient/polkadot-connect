@@ -16,8 +16,6 @@ To install `polkadot-connect`, you can use npm or yarn:
 npm install @joinerdavid0213/polkadot-connect
 ```
 
-````
-
 or
 
 ```bash
@@ -48,4 +46,7 @@ For questions or support, please open an issue on GitHub or contact us at joiner
 - Replace `link-to-documentation` and `link-to-contributing-guidelines` with actual URLs.
 - Update the contact email as necessary.
 - Feel free to add any additional sections or features relevant to your library!
-````
+
+```
+
+```
