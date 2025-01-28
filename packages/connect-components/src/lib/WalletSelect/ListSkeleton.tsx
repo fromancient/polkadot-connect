@@ -1,5 +1,5 @@
-import { shortenAddress } from '@talismn/connect-ui'
-import { WalletAccount } from '@talismn/connect-wallets'
+import { shortenAddress } from '@polkadot/connect-ui'
+import { WalletAccount } from '@polkadot/connect-wallets'
 
 import styles from './WalletSelect.module.css'
 

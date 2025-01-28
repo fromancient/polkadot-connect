@@ -1,6 +1,6 @@
 import './App.css'
 
-import { WalletSelect } from '@talismn/connect-components'
+import { WalletSelect } from '@polkadot/connect-components'
 import {
   AlephZeroWallet,
   EnkryptWallet,
@@ -11,7 +11,7 @@ import {
   PolkaGate,
   SubWallet,
   TalismanWallet,
-} from '@talismn/connect-wallets'
+} from '@polkadot/connect-wallets'
 
 export function App() {
   return (

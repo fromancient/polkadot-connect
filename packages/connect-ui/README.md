@@ -1,9 +1,9 @@
-# @talismn/connect-ui
+# @polkadot/connect-ui
 
 ## Setup:
 
 ```
-npm i --save @talismn/connect-ui
+npm i --save @polkadot/connect-ui
 ```
 
 ## Components
@@ -13,7 +13,7 @@ npm i --save @talismn/connect-ui
 Example
 
 ```tsx
-import { Modal } from '@talismn/connect-ui';
+import { Modal } from '@polkadot/connect-ui';
 
 
 <Modal
@@ -45,7 +45,7 @@ import { Modal } from '@talismn/connect-ui';
 Use localStorage values with ease.
 
 ```tsx
-import { useLocalStorage } from '@talismn/connect-ui'
+import { useLocalStorage } from '@polkadot/connect-ui'
 
 const Dummy = () => {
   const [value, setValue] = useLocalStorage('dummy-key')
@@ -60,7 +60,7 @@ const Dummy = () => {
 Detects clicks outside of the `ref` element and calls the provided callback.
 
 ```tsx
-import { useOnClickOutside } from '@talismn/connect-ui'
+import { useOnClickOutside } from '@polkadot/connect-ui'
 
 const Popup = ({ handleClose }) => {
   const ref = useRef<HTMLDivElement>(null)
@@ -76,7 +76,7 @@ const Popup = ({ handleClose }) => {
 Truncates the center of an address, keeping only the start and end bytes.
 
 ```tsx
-import { shortenAddress } from '@talismn/connect-ui'
+import { shortenAddress } from '@polkadot/connect-ui'
 
 shortenAddress('5FNfznCsgDKywfDXsYTf7YydpnMHUr8fjabK48rS2oFUugdc') // 5FNf…ugdc
 ```

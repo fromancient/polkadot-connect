@@ -1,4 +1,4 @@
-import { getWalletBySource } from '@talismn/connect-wallets'
+import { getWalletBySource } from '@polkadot/connect-wallets'
 
 export function web3FromSource() {
   const selectedItem = localStorage.getItem(
