@@ -1,9 +1,17 @@
 {
-  "name": "polkadot-connect",
+  "name": "@joinerdavid0213/polkadot-connect",
   "description": "Connect your DApp to Ethereum and Polkadot wallets with Polkadot Connect.",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "engines": {
     "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "packageManager": "pnpm@9.13.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fromancient/polkadot-connect.git"
   },
   "scripts": {
     "prepare": "husky",
