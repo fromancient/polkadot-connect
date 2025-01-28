@@ -14,14 +14,14 @@
 To install `polkadot-connect`, you can use npm or yarn:
 
 ```bash
-npm install polkadot-connect
+npm install @joinerdavid0213/polkadot-connect
 ```
 ````
 
 or
 
 ```bash
-yarn add polkadot-connect
+npm i @joinerdavid0213/polkadot-connect
 ```
 
 ## Usage
