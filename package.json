@@ -6,6 +6,7 @@
     "node": ">=18.0.0"
   },
   "packageManager": "pnpm@9.13.0",
+  "repository": "https://github.com/fromancient/polkadot-connect.git",
   "scripts": {
     "prepare": "husky",
     "prepublishOnly": "pnpm build",
