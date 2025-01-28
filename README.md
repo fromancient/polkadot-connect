@@ -1,4 +1,3 @@
-````markdown
 # polkadot-connect
 
 **polkadot-connect** is a library designed to facilitate seamless connections between your decentralized applications (DApps) and Polkadot wallets. It provides an easy-to-use interface for integrating wallet functionalities, ensuring a smooth user experience.
@@ -16,6 +15,7 @@ To install `polkadot-connect`, you can use npm or yarn:
 ```bash
 npm install @joinerdavid0213/polkadot-connect
 ```
+
 ````
 
 or
@@ -48,3 +48,4 @@ For questions or support, please open an issue on GitHub or contact us at joiner
 - Replace `link-to-documentation` and `link-to-contributing-guidelines` with actual URLs.
 - Update the contact email as necessary.
 - Feel free to add any additional sections or features relevant to your library!
+````
