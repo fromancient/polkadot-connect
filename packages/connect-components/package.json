@@ -39,8 +39,8 @@
     "Integration"
   ],
   "dependencies": {
-    "@talismn/connect-ui": "workspace:*",
-    "@talismn/connect-wallets": "workspace:*"
+    "@polkadot/connect-ui": "workspace:*",
+    "@polkadot/connect-wallets": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18.2.0",

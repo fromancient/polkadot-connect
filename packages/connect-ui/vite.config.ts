@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: '@talismn/connect-ui',
+      name: '@polkadot/connect-ui',
       formats: ['es', 'cjs'],
       fileName: 'connect-ui',
     },
