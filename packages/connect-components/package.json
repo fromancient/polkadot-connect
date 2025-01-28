@@ -2,7 +2,7 @@
   "name": "@polkadot/connect-components",
   "version": "1.1.9",
   "license": "GPL-3.0",
-  "author": "TalismanSociety",
+  "author": "fromancient",
   "repository": {
     "type": "git",
     "url": "https://github.com/fromancient/polkadot-connect.git",
@@ -34,7 +34,7 @@
     "src"
   ],
   "keywords": [
-    "Talisman",
+    "polkadot",
     "Connect",
     "Integration"
   ],
