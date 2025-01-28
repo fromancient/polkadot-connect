@@ -40,9 +40,3 @@ init()
 ## Contact
 
 For questions or support, please open an issue on GitHub or contact us at joinercantillo0813@gmail.com.
-
-## Customization
-
-- Replace `link-to-documentation` and `link-to-contributing-guidelines` with actual URLs.
-- Update the contact email as necessary.
-- Feel free to add any additional sections or features relevant to your library!
