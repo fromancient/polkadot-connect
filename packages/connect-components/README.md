@@ -235,7 +235,6 @@ webpackConfig.module.rules.push({
 For "unejected" Create React App projects, please see `craco.config.js` below:
 
 ```js
-// craco.config.js
 // Solution comes from https://polkadot.js.org/docs/usage/FAQ/#on-webpack-4-i-have-a-parse-error-on-importmetaurl
 const ImportMetaLoaderPlugin = {
   plugin: {
