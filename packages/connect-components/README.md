@@ -214,12 +214,7 @@ then `WalletSelect` will inherit the correct styles.
 
 ## Adding new wallets into the `WalletSelect` Modal
 
-Refer to [`@polkadot/connect-wallets`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-wallets) for more details.
-
 ## Dependencies:
-
-- [`@polkadot/connect-wallets`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-wallets)
-- [`@polkadot/connect-ui`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-ui)
 
 ## Troubleshooting
 
@@ -235,7 +230,6 @@ webpackConfig.module.rules.push({
 For "unejected" Create React App projects, please see `craco.config.js` below:
 
 ```js
-// craco.config.js
 // Solution comes from https://polkadot.js.org/docs/usage/FAQ/#on-webpack-4-i-have-a-parse-error-on-importmetaurl
 const ImportMetaLoaderPlugin = {
   plugin: {
