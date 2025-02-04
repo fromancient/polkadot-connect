@@ -214,12 +214,7 @@ then `WalletSelect` will inherit the correct styles.
 
 ## Adding new wallets into the `WalletSelect` Modal
 
-Refer to [`@polkadot/connect-wallets`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-wallets) for more details.
-
 ## Dependencies:
-
-- [`@polkadot/connect-wallets`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-wallets)
-- [`@polkadot/connect-ui`](https://github.com/TalismanSociety/talisman-connect/tree/main/packages/connect-ui)
 
 ## Troubleshooting
 
