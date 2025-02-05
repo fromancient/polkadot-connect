@@ -134,14 +134,14 @@ return (
 
 ## Events and persistence
 
-### `@talisman-connect/selected-wallet-name` (LocalStorage)
+### `@polkadot-connect/selected-wallet-name` (LocalStorage)
 
 Description:
 Updated on `WalletSelect.onWalletSelected` ONLY if there are no errors for the selected wallet.
 
 Removing this item will be equivalent to a "disconnection" behaviour for Dapps.
 
-### `@talisman-connect/wallet-selected` (CustomEvent)
+### `@polkadot-connect/wallet-selected` (CustomEvent)
 
 Description:
 Dispatched on `WalletSelect.onWalletSelected` ONLY if there are no errors for the selected wallet.
@@ -151,7 +151,7 @@ Params: `{ detail: Wallet }`
 To listen to this event:
 
 ```
-document.addEventListener('@talisman-connect/wallet-selected', function() {
+document.addEventListener('@polkadot-connect/wallet-selected', function() {
   // ...
 })
 ```
