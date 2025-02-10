@@ -6,7 +6,7 @@ import XIcon from '../../assets/icons/x.svg?react'
 import { useOnClickOutside } from '../useOnClickOutside/useOnClickOutside'
 import styles from './Modal.module.css'
 
-// TODO: Move this to @talisman/connect-ui
+// TODO: Move this to @polkadot/connect-ui
 export interface ModalProps {
   title?: ReactNode
   footer?: ReactNode
