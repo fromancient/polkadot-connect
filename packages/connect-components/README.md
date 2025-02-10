@@ -95,7 +95,7 @@ return <WalletSelect
 
 This function is a drop-in replacement for the `@polkadot/extension-dapp` version which triggers multiple popups.
 
-This uses the localStorage value for `@talisman-connect/selected-wallet-name` which is updated by `WalletSelect` or `WalletSelectButton` and retrieves the extension object.
+This uses the localStorage value for `@polkadot-connect/selected-wallet-name` which is updated by `WalletSelect` or `WalletSelectButton` and retrieves the extension object.
 
 ```tsx
 import { web3FromSource } from '@polkadot/connect-components'
