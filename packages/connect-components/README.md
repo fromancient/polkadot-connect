@@ -118,7 +118,7 @@ return (
   <WalletSelectButton
     wallet={talismanWallet}
     onClick={(accounts) => {
-      // accounts === undefined is an Error state
+      // accounts == undefined is an Error state
     }}
   >
     <img
