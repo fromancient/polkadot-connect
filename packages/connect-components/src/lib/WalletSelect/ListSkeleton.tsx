@@ -3,7 +3,12 @@ import { WalletAccount } from '@polkadot/connect-wallets'
 
 import styles from './WalletSelect.module.css'
 
+/**
+ * The ListSkeleton component is responsible for rendering a list of placeholder
+ * wallet accounts to create a loading state for the wallet selection UI.
+ */
 export function ListSkeleton() {
+  // Create an array of 2 dummy wallet account objects
   const listItems = Array.from(
     { length: 2 },
     (_v, i): WalletAccount => ({
@@ -12,8 +17,9 @@ export function ListSkeleton() {
       address: 'dummy',
     }),
   )
+
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
+    // Render the list of placeholder wallet accounts
     <>
       {listItems?.map((account) => {
         return (
@@ -27,7 +33,9 @@ export function ListSkeleton() {
                 opacity: 0,
               }}
             >
+              {/* Display the wallet account name */}
               <div>{account.name}</div>
+              {/* Display the shortened wallet address */}
               <div style={{ fontSize: 'small', opacity: 0.5 }}>
                 {shortenAddress(account.address)}
               </div>
