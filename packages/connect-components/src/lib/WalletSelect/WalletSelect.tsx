@@ -75,26 +75,32 @@ export function WalletSelect(props: WalletSelectProps) {
 
   const [isOpen, setIsOpen] = useState(false)
 
+  // Commit: Open modal and load wallets when the modal is activated
   const onModalOpen = useCallback(() => {
     const wallets = getWallets()
     const installedWallets = wallets.filter((wallet) => wallet.installed)
-    // check if Talisman is installed in installedWallets, if not, add Talisman to the list of installed wallets
+
+    // Commit: Ensure Talisman wallet is included in the installed wallets
     if (
       !installedWallets.find((wallet) => wallet.extensionName === 'talisman')
     ) {
-      // push talisman to the first position
-      installedWallets.unshift(new TalismanWallet())
+      installedWallets.unshift(new TalismanWallet()) // Add Talisman to the front if not present
     }
+
     const updatedWalletList = onlyShowInstalled ? installedWallets : walletList
     setWallets(updatedWalletList || wallets)
     setIsOpen(true)
     setLoadingAccounts(false)
+
+    // Commit: Trigger callback when wallets are opened
     if (onWalletConnectOpen) {
       onWalletConnectOpen(wallets)
     }
+
     return wallets
   }, [onWalletConnectOpen])
 
+  // Commit: Close modal and reset state when dialog is closed
   const onModalClose = useCallback(() => {
     setIsOpen(false)
     setSelectedWallet(undefined)
@@ -105,6 +111,7 @@ export function WalletSelect(props: WalletSelectProps) {
     }
   }, [onWalletConnectClose])
 
+  // Commit: Clean up subscriptions on component unmount
   useEffect(() => {
     // TODO: Commenting out for now.
     // In the webapp, the `wallet.installed` is sometimes delayed for some reason.
@@ -113,32 +120,34 @@ export function WalletSelect(props: WalletSelectProps) {
     return () => {
       if (unsubscribe) {
         Object.values(unsubscribe).forEach((unsubscribeFn) => {
-          unsubscribeFn?.()
+          unsubscribeFn?.() // Clean up each unsubscribe method
         })
       }
     }
   })
 
+  // Commit: Open modal when the component is in open state
   useEffect(() => {
     if (open) {
       onModalOpen()
     }
   }, [onModalOpen, open])
 
-  // TODO: Do proper error clearing...
+  // Commit: Clear error if no wallet is selected
   useEffect(() => {
     if (!selectedWallet) {
       setError(undefined)
     }
   }, [selectedWallet])
 
-  // Update error on consumers...
+  // Commit: Propagate error to consumers
   useEffect(() => {
     if (onError) {
       onError(error || undefined)
     }
   }, [error, onError])
 
+  // Commit: Handle wallet selection and account loading
   const onWalletListSelected = useCallback(
     async (wallet: Wallet) => {
       setError(undefined)
@@ -153,6 +162,7 @@ export function WalletSelect(props: WalletSelectProps) {
           setLoadingAccounts(false)
           setAccounts(accounts)
           if (onUpdatedAccounts) {
+            // Commit: Notify about updated accounts
             onUpdatedAccounts(accounts)
           }
         })
@@ -162,18 +172,21 @@ export function WalletSelect(props: WalletSelectProps) {
         })
 
         if (wallet.installed) {
+          // Commit: Save wallet selection
           saveAndDispatchWalletSelect(wallet)
         }
 
+        // Commit: Close modal if accounts list is not shown
         if (!showAccountsList && wallet.installed) {
           onModalClose()
         }
       } catch (err) {
-        setError(err as Error)
+        setError(err as Error) // Commit: Capture any error during wallet processing
         setLoadingAccounts(false)
-        onError?.(err)
+        onError?.(err) // Commit: Notify error to consumers if applicable
       }
 
+      // Commit: Notify about wallet selection
       if (onWalletSelected) {
         onWalletSelected(wallet)
       }
@@ -217,11 +230,12 @@ export function WalletSelect(props: WalletSelectProps) {
   return (
     <>
       {triggerComponent &&
+        // Commit: Enhance trigger component behavior
         cloneElement(triggerComponent, {
           onClick: (e: Event) => {
             e.stopPropagation()
             const wallets = onModalOpen()
-            triggerComponent.props.onClick?.(wallets)
+            triggerComponent.props.onClick?.(wallets) // Commit: Pass opened wallets to trigger component
           },
         })}
       <Modal
@@ -230,21 +244,24 @@ export function WalletSelect(props: WalletSelectProps) {
         footer={footer}
         handleClose={onModalClose}
         handleBack={
-          selectedWallet ? () => setSelectedWallet(undefined) : undefined
+          selectedWallet ? () => setSelectedWallet(undefined) : undefined // Commit: Navigate back if wallet is selected
         }
         isOpen={isOpen}
       >
         {!selectedWallet && (
+          // Commit: Display wallet list when no wallet is selected
           <WalletList
             items={supportedWallets}
             onClick={onWalletListSelected}
             makeInstallable={makeInstallable}
           />
         )}
-        {selectedWallet && loadingAccounts && <Loading />}
+        {selectedWallet && loadingAccounts && <Loading />}{' '}
+        {/* Commit: Show loading indicator */}
         {selectedWallet &&
           !selectedWallet?.installed &&
           loadingAccounts === false && (
+            // Commit: Prompt user to install wallet if not installed
             <InstallExtension wallet={selectedWallet} />
           )}
         {selectedWallet &&
@@ -252,21 +269,24 @@ export function WalletSelect(props: WalletSelectProps) {
           showAccountsList &&
           loadingAccounts === false && (
             <>
-              {!hasAccounts && <NoAccounts wallet={selectedWallet} />}
+              {!hasAccounts && <NoAccounts wallet={selectedWallet} />}{' '}
+              {/* Commit: Show message if no accounts found */}
               {hasAccounts && (
+                // Commit: Display account list if accounts are present
                 <AccountList
                   items={selectedWalletAccounts}
                   onClick={(account) => {
                     if (onAccountSelected) {
                       onAccountSelected(account)
                     }
-                    onModalClose()
+                    onModalClose() // Commit: Close the modal on account selection
                   }}
                 />
               )}
             </>
           )}
-        {error && <div className={styles['message']}>{error.message}</div>}
+        {error && <div className={styles['message']}>{error.message}</div>}{' '}
+        {/* Commit: Show error message if applicable */}
       </Modal>
     </>
   )
