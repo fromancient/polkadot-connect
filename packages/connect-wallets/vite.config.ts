@@ -1,32 +1,34 @@
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
-import dts from 'vite-plugin-dts'
-import svgr from 'vite-plugin-svgr'
+// Importing necessary plugins and dependencies
+import react from '@vitejs/plugin-react' // React plugin for Vite
+import { defineConfig } from 'vite' // Function to define the Vite configuration
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js' // Plugin to inject CSS via JS
+import dts from 'vite-plugin-dts' // Plugin for TypeScript definition generation
+import svgr from 'vite-plugin-svgr' // Plugin to import SVGs as React components
 
-// https://vite.dev/config/
+// Vite configuration for building the library
 export default defineConfig({
   build: {
     lib: {
-      entry: 'src/index.ts',
-      name: '@talismn/connect-wallets',
-      formats: ['es', 'cjs'],
-      fileName: 'connect-wallets',
+      entry: 'src/index.ts', // Entry file for the library
+      name: '@talismn/connect-wallets', // Library name
+      formats: ['es', 'cjs'], // Output formats: ES module and CommonJS
+      fileName: 'connect-wallets', // Output file name
     },
     rollupOptions: {
       external: [
-        '@polkadot/api',
-        '@polkadot/extension-inject',
-        'react',
-        'react-dom',
+        // External dependencies to exclude from the bundle
+        '@polkadot/api', // Polkadot API
+        '@polkadot/extension-inject', // Polkadot extension injection
+        'react', // React
+        'react-dom', // React DOM
       ],
     },
-    emptyOutDir: false,
+    emptyOutDir: false, // Prevents emptying the output directory before build
   },
   plugins: [
-    react(),
-    svgr(),
-    cssInjectedByJsPlugin({ dev: { enableDev: true } }),
-    dts({ tsconfigPath: './tsconfig.app.json', rollupTypes: true }),
+    react(), // Add React plugin
+    svgr(), // Add SVGR plugin
+    cssInjectedByJsPlugin({ dev: { enableDev: true } }), // Add CSS-injected-by-JS plugin with dev mode
+    dts({ tsconfigPath: './tsconfig.app.json', rollupTypes: true }), // Add DTS plugin with specified TypeScript config
   ],
 })
