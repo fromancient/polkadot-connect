@@ -9,7 +9,7 @@ import { PolkaGate } from './polkagate-wallet'
 import { SubWallet } from './subwallet-wallet'
 import { TalismanWallet } from './talisman-wallet'
 
-// Export wallets as well for one and done usage
+// Export wallets for easy and convenient one-time usage
 export {
   AlephZeroWallet,
   EnkryptWallet,
@@ -22,7 +22,7 @@ export {
   TalismanWallet,
 }
 
-// Add new wallets here
+// List of supported wallets to be initialized
 const supportedWallets = [
   new TalismanWallet(),
   new NovaWallet(),
@@ -35,10 +35,12 @@ const supportedWallets = [
   new AlephZeroWallet(),
 ]
 
+// Return all supported wallets
 export function getWallets(): Wallet[] {
   return supportedWallets
 }
 
+// Find a wallet by its source name
 export function getWalletBySource(
   source: string | unknown,
 ): Wallet | undefined {
@@ -47,6 +49,7 @@ export function getWalletBySource(
   })
 }
 
+// Check if the specified wallet is installed
 export function isWalletInstalled(source: string | unknown): boolean {
   const wallet = getWalletBySource(source)
   return wallet?.installed as boolean
