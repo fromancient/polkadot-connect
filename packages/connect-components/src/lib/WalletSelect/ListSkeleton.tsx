@@ -1,7 +1,10 @@
-import { shortenAddress } from '@polkadot/connect-ui' // Import the function to shorten wallet addresses
-import { WalletAccount } from '@polkadot/connect-wallets' // Import the WalletAccount type for typing purposes
+// Import the function to shorten wallet addresses
+import { shortenAddress } from '@polkadot/connect-ui'
+// Import the WalletAccount type for typing purposes
+import { WalletAccount } from '@polkadot/connect-wallets'
 
-import styles from './WalletSelect.module.css' // Import CSS styles specific to the WalletSelect component
+// Import CSS styles specific to the WalletSelect component
+import styles from './WalletSelect.module.css'
 
 /**
  * The ListSkeleton component is responsible for rendering a list of placeholder
