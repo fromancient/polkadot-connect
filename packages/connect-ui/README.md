@@ -1,40 +1,39 @@
 # @polkadot/connect-ui
 
-## Setup:
+`@polkadot/connect-ui` is a library designed for seamless integration with Polkadot's ecosystem, providing customizable UI components and helpful hooks for building decentralized applications.
 
-```
-npm i --save @polkadot/connect-ui
+## Installation
+
+To install the library, use npm:
+
+```bash
+npm install --save @polkadot/connect-ui
 ```
 
 ## Components
 
-### `Modal`
+### Modal
 
-Example
+The `Modal` component is a versatile dialog box for displaying information and user interactions.
+
+#### Example
 
 ```tsx
-import { Modal } from '@polkadot/connect-ui';
+import { Modal } from '@polkadot/connect-ui'
 
-
-<Modal
-  className={}
-
-  // The Modal title
-  title={}
-
-  // The Modal toggle
-  isOpen={false}
-
-  // The id where the Modal is appended. By default, it's appended to document.body.
-  appId=""
-
-  // Callback on Modal close
-  handleClose={() => { ... }}
-
-  // [Optional] Callback on Modal back button click. Used with a multi modal setup.
-  handleBack={() => { ... }}
+;<Modal
+  className="your-custom-class" // Optional: Custom styles
+  title="Your Modal Title" // Required: The Modal title
+  isOpen={true} // Required: Boolean indicating if the modal is open
+  appId="unique-modal-app-id" // Optional: The identifier for appending the modal
+  handleClose={() => {
+    /* your close logic */
+  }} // Required: Callback for closing the modal
+  handleBack={() => {
+    /* your back button logic */
+  }} // Optional: Callback for back button handling
 >
-  <div>The modal body</div>
+  <div>The modal body content goes here.</div>
 </Modal>
 ```
 
@@ -42,13 +41,16 @@ import { Modal } from '@polkadot/connect-ui';
 
 ### `useLocalStorage`
 
-Use localStorage values with ease.
+Easily manage localStorage values with this custom hook.
+
+#### Example
 
 ```tsx
 import { useLocalStorage } from '@polkadot/connect-ui'
 
-const Dummy = () => {
+const DummyComponent = () => {
   const [value, setValue] = useLocalStorage('dummy-key')
+
   return (
     <button onClick={() => setValue('Dummy')}>{value || 'Click Me'}</button>
   )
@@ -57,26 +59,42 @@ const Dummy = () => {
 
 ### `useOnClickOutside`
 
-Detects clicks outside of the `ref` element and calls the provided callback.
+Detects clicks outside a specified `ref` element and executes a callback function.
+
+#### Example
 
 ```tsx
 import { useOnClickOutside } from '@polkadot/connect-ui'
+import { useRef } from 'react'
 
-const Popup = ({ handleClose }) => {
+const PopupComponent = ({ handleClose }) => {
   const ref = useRef<HTMLDivElement>(null)
   useOnClickOutside(ref, handleClose)
-  return <div ref={ref}>/* content */</div>
+
+  return <div ref={ref}>/* Content goes here */</div>
 }
 ```
 
-## Utils
+## Utilities
 
 ### `shortenAddress`
 
-Truncates the center of an address, keeping only the start and end bytes.
+Use this utility function to truncate cryptocurrency addresses, preserving the start and end segments.
+
+#### Example
 
 ```tsx
 import { shortenAddress } from '@polkadot/connect-ui'
 
-shortenAddress('5FNfznCsgDKywfDXsYTf7YydpnMHUr8fjabK48rS2oFUugdc') // 5FNf…ugdc
+const shortenedAddress = shortenAddress(
+  '5FNfznCsgDKywfDXsYTf7YydpnMHUr8fjabK48rS2oFUugdc',
+) // Returns: 5FNf…ugdc
 ```
+
+## Contributing
+
+We welcome contributions to `@polkadot/connect-ui`. Please feel free to open issues or submit pull requests to enhance the library.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more information.
