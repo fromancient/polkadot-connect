@@ -1,40 +1,41 @@
 # @polkadot/connect-wallets
 
-This package provides essential building blocks for wallet connection user interfaces (UIs) in decentralized applications (DApps). It addresses the shortcomings of the existing `@polkadot/extension-dapp` package, particularly the issue of multiple popup dialogues from different wallet extensions.
+The `@polkadot/connect-wallets` package offers a modular solution for constructing wallet connection user interfaces (UIs) within decentralized applications (DApps). It mitigates the limitations observed in the `@polkadot/extension-dapp` package, particularly the proliferation of multiple popup dialogs when interfacing with various wallet extensions.
 
-With the introduction of multiple wallet extensions like Talisman alongside the Polkadot.js extension, having several popups for wallet connections is not ideal. Most use cases would benefit from allowing users to select and enable only one wallet at a time. The `@polkadot/connect-wallets` package aims to streamline this process.
+With the emergence of multiple wallet extensions—such as Talisman and Polkadot.js—users face an unsatisfactory experience when forced to encounter several popups for wallet connections. The `@polkadot/connect-wallets` package enhances user experience by allowing seamless selection and integration of a single wallet at a time.
 
-## Setup
+## Installation
 
-You can install the `@polkadot/connect-wallets` package using your preferred package manager:
+To incorporate the `@polkadot/connect-wallets` package into your project, execute one of the following commands using your preferred package manager:
 
 ```bash
-# Using npm
+# npm
 npm install --save @polkadot/connect-wallets
 
-# Using bun
+# bun
 bun add @polkadot/connect-wallets
 
-# Using pnpm
+# pnpm
 pnpm add @polkadot/connect-wallets
 
-# Using yarn
+# yarn
 yarn add @polkadot/connect-wallets
 ```
 
-## Quick Start
+## Quick Start Guide
 
-### Wallet Selector UI
+### Implementing a Wallet Selector UI
 
-Below is a sample implementation of a wallet selector UI:
+Here’s an example of a wallet selection UI implementation:
 
 ```tsx
 import { getWallets } from '@polkadot/connect-wallets'
 
-const DAPP_NAME = 'Your DApp Name' // Replace with your actual DApp name
+const DAPP_NAME = 'Your DApp Name' // Replace with the actual name of your DApp
 
 const MyWalletSelector = () => {
   const supportedWallets: Wallet[] = getWallets()
+
   return (
     <div>
       {supportedWallets.map((wallet: Wallet) => (
@@ -45,13 +46,13 @@ const MyWalletSelector = () => {
               await wallet.enable(DAPP_NAME)
               const unsubscribe = await wallet.subscribeAccounts(
                 (accounts: WalletAccount[]) => {
-                  // Handle the accounts...
-                  // Save the selected wallet name for future reference...
+                  // Handle retrieved accounts accordingly...
+                  // Store the selected wallet information for future use...
                 },
               )
-            } catch (err) {
-              // Handle error (Refer to `packages/connect-wallets/src/lib/errors`)
-              console.error('Error connecting to wallet:', err)
+            } catch (error) {
+              // Handle errors according to your application's needs
+              console.error('Error connecting to wallet:', error)
             }
           }}
         >
@@ -65,70 +66,70 @@ const MyWalletSelector = () => {
 
 ### Example: Signing a Message
 
-Here's an example of how to sign a message using the connected wallet:
+The following code snippet demonstrates how to sign a message using the connected wallet:
 
 ```tsx
 try {
-  // If `account` object is not available, retrieve the wallet by its source
+  // Ensure `account` is available, retrieve wallet by its source if necessary
   const signer = account.wallet.signer
 
-  // This line will trigger the wallet extension popup
+  // This invocation will prompt the wallet extension
   const { signature } = await signer.signRaw({
     type: 'payload',
     data: 'Some data to sign...',
     address: account.address,
   })
-} catch (err) {
-  // Handle error...
-  console.error('Error signing message:', err)
+} catch (error) {
+  // Manage any potential errors
+  console.error('Error signing message:', error)
 }
 ```
 
-## Functions
+## API Reference
 
 ### `getWallets(): Wallet[]`
 
-Retrieves all the supported wallets.
+Returns an array of all supported wallet instances.
 
 ### `getWalletBySource(source: string): Wallet`
 
-Retrieves a wallet by its extension name (source). This is useful if the `account: WalletAccount` object is not readily available.
+Retrieves a wallet instance by its extension name (source). This method is particularly useful when the `account: WalletAccount` instance is not readily accessible.
 
-### `wallet.enable(dappName)`
+### `wallet.enable(dappName: string): Promise<void>`
 
-Must be called to connect to the wallet extension before subscribing to accounts. This will trigger a popup if it is the first time being enabled.
+Initiates the connection to the wallet extension and must be invoked prior to subscribing to accounts. The first-time execution will trigger a popup prompting the user.
 
-### `wallet.getAccounts(anyType?: boolean): Promise<WalletAccount[]>`
+### `wallet.getAccounts(type?: boolean): Promise<WalletAccount[]>`
 
-Fetches the accounts from the connected wallet.
+Asynchronously retrieves the associated accounts from the connected wallet.
 
-### `wallet.subscribeAccounts(callback): UnsubscribeFn`
+### `wallet.subscribeAccounts(callback: (accounts: WalletAccount[]) => void): UnsubscribeFn`
 
-Subscribes to account changes from the wallet extension. Remember to call the returned `unsubscribe` function to clean up.
+Subscribes to account changes from the wallet extension. It is crucial to call the returned `unsubscribe` function to avoid memory leaks.
 
-### `wallet.extension`
+### `wallet.extension: WalletExtension`
 
-This is the main interface for DApp developers to interact with the wallet. Refer to the related documentation for its capabilities. See `BaseDotsamaWallet.extension()` for an example.
+The primary interface for DApp developers to interact with the wallet. For detailed capabilities, refer to the associated documentation. See `BaseDotsamaWallet.extension()` for a practical example.
 
-### `wallet.signer`
+### `wallet.signer: Signer`
 
-A convenience property derived from `wallet.extension`, used for signing operations.
+A convenience interface property derived from `wallet.extension`, utilized for signing operations.
 
-## Interfaces
+## Type Definitions
 
-For detailed type definitions, please refer to `packages/connect-wallets/src/types.ts`.
+For exhaustive type definitions, please consult `packages/connect-wallets/src/types.ts`.
 
 ## Contributing New Wallets
 
-If you'd like to contribute new wallet implementations, follow these steps:
+To contribute a new wallet implementation, adhere to the following guidelines:
 
-1. Add the new wallet under `packages/connect-wallets/src/lib/` (e.g., `packages/connect-wallets/src/lib/foo-wallet/index.ts`).
-2. Create a class that implements the `Wallet` interface (e.g., `export class FooWallet implements Wallet`).
-3. Include the wallet instance in the `supportedWallets` array in `packages/connect-wallets/src/lib/wallets.ts`.
-4. **IMPORTANT**: Ensure that the wallet logo does not exceed 10KB, as it will be inlined.
+1. Add the new wallet in `packages/connect-wallets/src/lib/` (e.g., `packages/connect-wallets/src/lib/foo-wallet/index.ts`).
+2. Create a class implementing the `Wallet` interface (e.g., `export class FooWallet implements Wallet`).
+3. Update the `supportedWallets` array in `packages/connect-wallets/src/lib/wallets.ts` to include the new wallet instance.
+4. **IMPORTANT**: Ensure that wallet logos do not exceed 10KB, as they will be inlined.
 
-Note: If multiple wallets share a similar interface, it's recommended to create a base class to avoid code duplication. See the `BaseDotsamaWallet` for an example of a base class and its derived classes.
+**Note**: If multiple wallets conform to a similar interface, it is advisable to implement a base class to curb code redundancy. Refer to `BaseDotsamaWallet` for a blueprint on constructing a base class and its derivatives.
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+This project is under the [MIT License](https://opensource.org/licenses/MIT).
