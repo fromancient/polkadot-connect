@@ -1,24 +1,55 @@
 {
   "compilerOptions": {
+    // Specifies the path to the file where the TypeScript build information is stored.
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+
+    // Sets the ECMAScript target version for the emitted JavaScript. Here, it's targeting ES2022.
     "target": "ES2022",
+
+    // Specifies a list of library files to include in the compilation. Here, it includes features from ES2023.
     "lib": ["ES2023"],
+
+    // Designates the module system to use; here, it uses ESNext for modern JavaScript modules.
     "module": "ESNext",
+
+    // Skip type checking of declaration files (i.e., `.d.ts` files) to speed up compilation time.
     "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* Bundler mode options */
+
+    // Configures how modules get resolved; 'Bundler' mode allows for various ways of resolving modules.
     "moduleResolution": "Bundler",
+
+    // Allows importing TypeScript files with `.ts` extensions directly, which is useful when using bundlers.
     "allowImportingTsExtensions": true,
+
+    // Ensures each file can be treated as an isolated module, which is helpful for transpilation.
     "isolatedModules": true,
+
+    // Forces TypeScript to use its module detection algorithm, which might be more aggressive.
     "moduleDetection": "force",
+
+    // Disables emitting of any JavaScript files; normally used in a development environment.
     "noEmit": true,
 
-    /* Linting */
+    /* Linting options */
+
+    // Enables all strict type-checking options.
     "strict": true,
+
+    // Raise errors for local variables that are declared but not used.
     "noUnusedLocals": true,
+
+    // Raise errors for function parameters that are declared but not used.
     "noUnusedParameters": true,
+
+    // Prevents fallthrough cases in switch statements unless explicitly marked.
     "noFallthroughCasesInSwitch": true,
+
+    // Raises errors for imports that have side effects but are not used.
     "noUncheckedSideEffectImports": true
   },
+
+  // Specifies the files to be included in the compilation process. Here, it's including the vite.config.ts file.
   "include": ["vite.config.ts"]
 }
