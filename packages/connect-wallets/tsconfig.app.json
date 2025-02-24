@@ -1,26 +1,58 @@
 {
   "compilerOptions": {
+    // File where TypeScript build info is stored. Useful for incremental compilation.
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    // Set the JavaScript language version for the output.
     "target": "ES2020",
+
+    // Use "define" for class fields, enabling class properties to be used as.
     "useDefineForClassFields": true,
+
+    // Specify the library files to be included in the compilation (ECMAScript and DOM libraries).
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    // Set the module system for the output to ESNext.
     "module": "ESNext",
+
+    // Skip type checking of declaration files to speed up the compilation.
     "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* Bundler mode settings */
+    // Resolve modules in a bundler-specific way.
     "moduleResolution": "Bundler",
+
+    // Allow importing TypeScript modules with .ts extensions.
     "allowImportingTsExtensions": true,
+
+    // Ensure that each file can be transpiled independently.
     "isolatedModules": true,
+
+    // Force module detection, interpreting files as modules regardless of their contents.
     "moduleDetection": "force",
+
+    // Prevent outputting files; stops TypeScript from emitting any compiled files.
     "noEmit": true,
+
+    // Specify the JSX transform mode for React (using the new JSX transform).
     "jsx": "react-jsx",
 
-    /* Linting */
+    /* Linting options to enforce code quality */
+    // Enable all strict type checking options.
     "strict": true,
+
+    // Reports errors on unused local variables.
     "noUnusedLocals": true,
+
+    // Reports errors on unused parameters in functions.
     "noUnusedParameters": true,
+
+    // Disallow fallthrough cases in switch statements to avoid unintentional fallthrough.
     "noFallthroughCasesInSwitch": true
+
+    // Uncomment to report errors when side effect imports are unchecked.
     // "noUncheckedSideEffectImports": true
   },
+  // Specify the files or directories to be included in the compilation.
   "include": ["src"]
 }
