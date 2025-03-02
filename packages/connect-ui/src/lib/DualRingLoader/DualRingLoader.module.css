@@ -1,25 +1,32 @@
+/* Styles for the loading spinner with dual rings */
 .lds-dual-ring {
-  display: inline-block;
-  width: auto;
-  height: 100%;
+  display: inline-block; /* Allows the loading spinner to sit inline with other elements */
+  width: auto; /* Width will adjust automatically */
+  height: 100%; /* Height takes full height of the parent container */
 }
+
+/* After pseudo-element used to create the ring effect */
 .lds-dual-ring:after {
-  content: ' ';
-  opacity: 0.8;
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid currentColor;
-  border-color: currentColor transparent currentColor transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+  content: ' '; /* Creates a blank space content for the pseudo-element */
+  opacity: 0.8; /* Sets the opacity for a slightly translucent effect */
+  display: block; /* Makes the pseudo-element behave as a block element */
+  width: 64px; /* Width of the inner ring */
+  height: 64px; /* Height of the inner ring */
+  margin: 8px; /* Margin around the inner ring */
+  border-radius: 50%; /* Creates a circular shape */
+  border: 6px solid currentColor; /* Applies a solid border using the current text color */
+  border-color: currentColor transparent currentColor transparent; /* Sets alternating border colors for the dual ring effect */
+  animation: lds-dual-ring 1.2s linear infinite; /* Applies the spinning animation */
 }
+
+/* Keyframes for the spinning animation */
 @keyframes lds-dual-ring {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Initial rotation angle */
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(
+      360deg
+    ); /* Final rotation angle to complete a full spin */
   }
 }
