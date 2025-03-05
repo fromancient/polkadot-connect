@@ -1,77 +1,121 @@
+/* Modal overrides for customizing modal appearance using CSS variables */
 .modal-overrides {
+  /* Background color for the modal, falls back to #fafafa if not defined */
   --modal-background: var(--talisman-connect-modal-background, #fafafa);
+
+  /* Foreground color for text and other elements within the modal */
   --modal-foreground: var(--talisman-connect-modal-foreground, #222);
+
+  /* Background color for controls within the modal */
   --modal-control-background: var(
     --talisman-connect-control-background,
     #f2f2f2
   );
+
+  /* Background color when controls are active (hovered or clicked) */
   --modal-active-background: var(--talisman-connect-active-background, #d2d2d2);
+
+  /* Border radius for modal corners */
   --modal-border-radius: var(--talisman-connect-border-radius, 1rem);
+
+  /* Space between modal content and its edges */
   --modal-gutter: var(--talisman-connect-modal-gutter, 2rem);
+
+  /* Minimum width for the modal */
   --modal-width: var(--talisman-connect-modal-min-width, 90%);
+
+  /* Maximum width for the modal */
   --modal-max-width: var(--talisman-connect-modal-max-width, 470px);
+
+  /* Minimum height for the modal, default is auto */
   --modal-min-height: var(--talisman-connect-modal-min-height, auto);
+
+  /* Maximum height for the modal, limited to 80% of the viewport height */
   --modal-max-height: var(--talisman-connect-modal-max-height, 80vh);
+
+  /* Font family to be used inside the modal */
   --modal-font-family: var(--talisman-connect-font-family, sans-serif);
+
+  /* Font size for the modal header */
   --modal-header-font-size: var(
     --talisman-connect-modal-header-font-size,
     1.5rem
   );
 
+  /* Z-index for the modal to ensure it overlays other elements */
   --modal-z-index: var(--talisman-connect-modal-z-index, 999);
 }
 
+/* Applies a margin to elements that follow each other within the modal */
 .modal-overrides > * + * {
-  margin-top: 2rem;
+  margin-top: 2rem; /* Adds space between consecutive direct children */
 }
 
+/* Flexbox utility class for arranging items */
 .flex {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  display: flex; /* Enables flexbox layout */
+  align-items: center; /* Vertically centers items */
+  gap: 1rem; /* Sets space between flex items */
 }
 
+/* Styles for row buttons, whether available or unavailable */
 button.row-button,
 button.row-button-unavailable {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* Enables flexbox for button layout */
+  justify-content: space-between; /* Space between content inside the button */
+  align-items: center; /* Centers content vertically */
+
+  /* Padding based on modal gutter variable for consistent spacing */
   padding: calc(var(--modal-gutter) * 0.5);
+
+  /* Rounded corners using border-radius variable */
   border-radius: calc(var(--modal-border-radius) * 0.75);
-  border: none;
-  outline: none;
-  font: inherit;
-  color: inherit;
+
+  border: none; /* Removes default border */
+  outline: none; /* Removes focus outline */
+
+  font: inherit; /* Inheriting font properties from parent */
+  color: inherit; /* Inheriting text color */
+
+  /* Background color for the button based on modal control background */
   background: var(--modal-control-background);
-  cursor: pointer;
-  width: 100%;
-  margin-bottom: 0.5rem;
+
+  cursor: pointer; /* Change cursor to pointer on hover */
+  width: 100%; /* Full width of parent container */
+  margin-bottom: 0.5rem; /* Space below each button */
 }
 
+/* Styles for unavailable buttons, reducing opacity */
 button.row-button-unavailable {
-  opacity: 30%;
+  opacity: 30%; /* Low opacity to indicate unavailability */
 }
 
+/* Hover effect for available buttons */
 button.row-button:hover {
+  /* Changes background when hovered */
   background: var(--modal-active-background);
 }
 
+/* Styles for anchor elements styled as buttons */
 a.row-button {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none; /* Removes underline from links */
+  color: inherit; /* Inherit color from parent */
 }
 
+/* Centered message styling */
 .message {
-  text-align: center;
-  opacity: 0.7;
+  text-align: center; /* Centers text */
+  opacity: 0.7; /* Slightly transparent text */
 }
 
+/* Capitalizes the first letter of the message */
 .message::first-letter {
-  text-transform: capitalize;
+  text-transform: capitalize; /* First letter of the message is capitalized */
 }
 
+/* Style for messages indicating absence of extensions */
 .no-extension-message {
-  padding: 1rem 2rem 2rem;
-  text-align: center;
-  opacity: 0.7;
+  padding: 1rem 2rem 2rem; /* Padding around the message */
+  text-align: center; /* Centered text */
+  opacity: 0.7; /* Transparent text to indicate softer message */
 }
