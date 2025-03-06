@@ -1,25 +1,30 @@
+/* Styles for the dual-ring loader */
 .lds-dual-ring {
-  display: inline-block;
-  width: auto;
-  height: 100%;
+  display: inline-block; /* Ensure the loader is displayed inline */
+  width: auto; /* Set width to auto to fit content */
+  height: 100%; /* Height set to 100% of the parent element */
 }
+
+/* After pseudo-element for the dual-ring effect */
 .lds-dual-ring:after {
-  content: ' ';
-  opacity: 0.8;
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid currentColor;
-  border-color: currentColor transparent currentColor transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+  content: ' '; /* Empty content for the pseudo-element */
+  opacity: 0.8; /* Slightly transparent for a subtle effect */
+  display: block; /* Block display to apply width and height */
+  width: 64px; /* Width of the loader */
+  height: 64px; /* Height of the loader */
+  margin: 8px; /* Margin around the loader */
+  border-radius: 50%; /* Make it a circle */
+  border: 6px solid currentColor; /* Solid border with current text color */
+  border-color: currentColor transparent currentColor transparent; /* Create the dual-ring effect */
+  animation: lds-dual-ring 1.2s linear infinite; /* Apply animation */
 }
+
+/* Keyframes for the rotation animation */
 @keyframes lds-dual-ring {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Start rotation at 0 degrees */
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* Complete rotation at 360 degrees */
   }
 }
