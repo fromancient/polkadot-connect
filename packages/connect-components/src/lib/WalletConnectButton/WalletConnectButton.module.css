@@ -1,10 +1,24 @@
 .wallet-connect-button {
+  /* Change cursor to pointer on hover to indicate clickability (currently commented out) */
   /* cursor: pointer; */
+
+  /* Padding applied around the button, defaulting to 0 if the variable is not set */
   padding: var(--talisman-connect-button-gutter, 0);
-  /* border: none;
-  outline: none;
-  font: inherit; */
+
+  /* No border for the button. This makes it appear flat (currently commented out) */
+  /* border: none; */
+
+  /* Remove the default focus outline; inherits font settings from parent element (currently commented out) */
+  /* outline: none; */
+  /* Apply inherited font properties to ensure consistency with surrounding text */
+  /* font: inherit; */
+
+  /* Text color for the button, defaults to inherit if variable is not set */
   color: var(--talisman-connect-button-foreground, inherit);
+
+  /* Background of the button, defaults to none if variable is not set */
   background: var(--talisman-connect-button-background, none);
+
+  /* The border radius gives the button rounded corners, defaults to 0 if variable is not set */
   border-radius: var(--talisman-connect-border-radius, 0);
 }
